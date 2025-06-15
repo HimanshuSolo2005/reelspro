@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ReelsPro
+
+A modern video sharing platform built with Next.js 13+, TypeScript, and MongoDB.
+
+## Technologies Used
+
+- [Next.js 13+](https://nextjs.org/) - React framework with App Router
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Mongoose](https://mongoosejs.com/) - MongoDB ODM
+- [NextAuth.js](https://next-auth.js.org/) - Authentication
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs) - Password hashing
+
+## Prerequisites
+
+Before you begin, ensure you have:
+- Node.js 18+ installed
+- MongoDB database (local or Atlas)
+- Git
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd reelspro
+```
 
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env
+```
+Then edit `.env` and add your:
+- MongoDB connection string
+- NextAuth secret (can be generated using: `node -e "console.log(require('crypto').randomBytes(32).toString('base64'));"`)
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- User authentication (signup/login)
+- JWT session handling
+- Secure password hashing
+- MongoDB database integration
+- TypeScript type safety
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── app/                    # Next.js 13 app directory
+│   ├── api/               # API routes
+│   ├── auth/              # Authentication related routes
+│   └── page.tsx           # Home page
+├── lib/                   # Utility functions and configurations
+│   ├── auth.ts           # NextAuth configuration
+│   └── db.ts             # Database connection
+├── models/               # MongoDB models
+│   ├── User.ts          # User model
+│   └── Video.ts         # Video model
+└── middleware.ts        # NextAuth middleware
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
